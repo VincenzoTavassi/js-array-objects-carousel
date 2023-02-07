@@ -70,6 +70,14 @@ function updateImage() {
 			</div>`
         }
     })
+    let allThumbs = document.querySelectorAll('.js-div');
+    allThumbs.forEach((thumb, numeroThumb) => {
+        if (numeroThumb == activeImage) {
+            thumb.classList.add('active');
+        } else {
+            thumb.classList.remove('active');
+        }
+    })
 }
 
 // MUOVI A DESTRA 
