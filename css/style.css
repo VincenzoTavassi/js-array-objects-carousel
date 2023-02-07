@@ -1,0 +1,47 @@
+body {}
+
+#carousel-container {
+    position: relative;
+}
+
+.main-container {
+    position: relative;
+}
+
+#carousel-container>img {
+    height: 80vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+#carousel-text>p {
+    font-size: 1.5rem;
+}
+
+#carousel-text {
+    position: absolute;
+    color: white;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#arrow-right {
+    position: absolute;
+    transform: translate(-50%);
+    color: white;
+    font-size: 4rem;
+    bottom: 50%;
+    right: 0;
+    cursor: pointer;
+}
+
+#arrow-left {
+    position: absolute;
+    transform: translate(50%);
+    color: white;
+    font-size: 4rem;
+    bottom: 50%;
+    left: 0px;
+    cursor: pointer;
+}
