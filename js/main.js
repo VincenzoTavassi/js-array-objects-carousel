@@ -48,7 +48,7 @@ updateImage();
 generateThumbs();
 let sliderWorking = true;
 let sliderDirection = 'left'
-let moveSlider = setInterval(moveLeft, 2000);
+let moveSlider = setInterval(moveRight, 2000);
 
 
 /*********************************************
@@ -82,7 +82,7 @@ function updateImage() {
 }
 
 // MUOVI A DESTRA 
-function moveLeft() {
+function moveRight() {
     activeImage++
     if (activeImage >= images.length) {
         activeImage = 0;
@@ -92,7 +92,7 @@ function moveLeft() {
 }
 
 // MUOVI A SINISTRA 
-function moveRight() {
+function moveLeft() {
     activeImage--
     if (activeImage < 0) {
         activeImage = images.length - 1;
@@ -133,10 +133,10 @@ function stopStartSlider() {
 function reverseSlider() {
     if (sliderWorking) {
         if (sliderDirection == 'left') {
-            autoMove('left')
+            autoMove('right')
             sliderDirection = 'right'
         } else {
-            autoMove('right')
+            autoMove('left')
             sliderDirection = 'left'
         }
     }
