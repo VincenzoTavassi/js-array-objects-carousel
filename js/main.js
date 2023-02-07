@@ -5,6 +5,7 @@ const leftArrowEl = document.getElementById('arrow-left');
 const rightArrowEl = document.getElementById('arrow-right');
 const stopButton = document.getElementById('stop-btn');
 const reverseButton = document.getElementById('reverse-btn');
+const sideThumbsEl = document.getElementById('side-container');
 
 // ARRAY 
 
@@ -44,12 +45,18 @@ reverseButton.addEventListener('click', reverseSlider);
 
 let activeImage = 0;
 updateImage();
+generateThumbs();
 let sliderWorking = true;
 let sliderDirection = 'left'
 let moveSlider = setInterval(moveLeft, 2000);
 
 
-// FUNZIONI 
+/*********************************************
+* 
+*                FUNZIONI
+* 
+**********************************************/
+
 
 // AGGIORNA L'IMMAGINE ATTUALE 
 function updateImage() {
@@ -124,4 +131,18 @@ function reverseSlider() {
             sliderDirection = 'left'
         }
     }
+}
+
+// GENERA THUMBNAILS 
+function generateThumbs() {
+    images.forEach((immagine, numeroIndice) => {
+        let nuovaImmagine = document.createElement('div');
+        nuovaImmagine.classList.add('js-div');
+        nuovaImmagine.innerHTML = `<img src="./${immagine.image}">`;
+        nuovaImmagine.addEventListener('click', function () {
+            activeImage = numeroIndice;
+            updateImage();
+        })
+        sideThumbsEl.append(nuovaImmagine);
+    })
 }

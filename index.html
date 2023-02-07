@@ -22,23 +22,20 @@
 </head>
 
 <body>
-	<main class="text-center">
+	<main class="text-center container-fluid">
 		<h1>JS Objects Carousel</h1>
-		<div class="main-container">
-
-			<div id="carousel-container">
-				<!-- <img src="./img/01.webp" alt="" srcset="">
-					<div id="carousel-text">
-						<h2 id="img-title" class="display-3 fw-bold">Titolo immagine</h2>
-						<p>Descrizione Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, nemo?
-						</p>
-					</div> -->
+		<div class="row">
+			<div class="col-10 main-container p-0">
+				<div id="carousel-container">
+				</div>
+				<i id="arrow-left" class="fa-solid fa-arrow-left"></i>
+				<i id="arrow-right" class="fa-solid fa-arrow-right"></i>
 			</div>
-			<i id="arrow-left" class="fa-solid fa-arrow-left"></i>
-			<i id="arrow-right" class="fa-solid fa-arrow-right"></i>
+			<div id="side-container" class="col-2 p-0">
+			</div>
 		</div>
-		<button id="stop-btn" type="button" class="btn btn-primary">STOP</button>
-		<button id="reverse-btn" type="button" class="btn btn-primary">REVERSE SLIDER</button>
+		<button id="stop-btn" type="button" class="btn btn-dark m-3">STOP</button>
+		<button id="reverse-btn" type="button" class="btn btn-dark m-3">REVERSE SLIDER</button>
 	</main>
 </body>
 

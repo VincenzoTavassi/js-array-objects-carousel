@@ -1,4 +1,6 @@
-body {}
+img {
+    max-width: 100%;
+}
 
 #carousel-container {
     position: relative;
@@ -6,6 +8,23 @@ body {}
 
 .main-container {
     position: relative;
+}
+
+#side-container img {
+
+    height: 100%;
+    width: 100%;
+    border: 10px solid black;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+#side-container {
+    height: 80vh;
+}
+
+.js-div {
+    height: calc(100% / 5);
 }
 
 #carousel-container>img {
