@@ -3,7 +3,8 @@
 const carouselEl = document.getElementById('carousel-container');
 const leftArrowEl = document.getElementById('arrow-left');
 const rightArrowEl = document.getElementById('arrow-right');
-console.log(rightArrowEl);
+const stopButton = document.getElementById('stop-btn');
+const reverseButton = document.getElementById('reverse-btn');
 
 // ARRAY 
 
@@ -35,17 +36,22 @@ const images = [
 // EVENT LISTENERS 
 
 leftArrowEl.addEventListener('click', moveLeft);
-
 rightArrowEl.addEventListener('click', moveRight);
+stopButton.addEventListener('click', stopStartSlider);
+reverseButton.addEventListener('click', reverseSlider);
 
 // ON LOAD 
 
 let activeImage = 0;
 updateImage();
+let sliderWorking = true;
+let sliderDirection = 'left'
+let moveSlider = setInterval(moveLeft, 2000);
 
 
 // FUNZIONI 
 
+// AGGIORNA L'IMMAGINE ATTUALE 
 function updateImage() {
     images.forEach((immagine, numeroImmagine) => {
         if (activeImage == numeroImmagine) {
@@ -56,25 +62,66 @@ function updateImage() {
             </p>
 			</div>`
         }
-
     })
 }
 
+// MUOVI A DESTRA 
 function moveRight() {
     activeImage++
-    console.log(activeImage);
     if (activeImage >= images.length) {
         activeImage = 0;
     }
+    console.log(activeImage);
+    updateImage()
+}
+
+// MUOVI A SINISTRA 
+function moveLeft() {
+    activeImage--
+    if (activeImage < 0) {
+        activeImage = images.length - 1;
+    }
+    console.log(activeImage);
     updateImage()
 }
 
 
-function moveLeft() {
-    activeImage--
-    console.log(activeImage);
-    if (activeImage < 0) {
-        activeImage = images.length - 1;
+// MUOVE LO SLIDER IN UNA DIREZIONE SE DICHIARATA, ALTRIMENTI LO FERMA 
+function autoMove(direction) {
+    clearInterval(moveSlider);
+    if (direction == 'left') {
+        moveSlider = setInterval(moveLeft, 2000);
+    } else if (direction == 'right') {
+        moveSlider = setInterval(moveRight, 2000);
     }
-    updateImage()
+}
+
+
+// SE LO SLIDER E' FERMO LO INIZIALIZZA, ALTRIMENTI LO FERMA 
+function stopStartSlider() {
+    autoMove();
+    if (!sliderWorking) {
+        sliderWorking = true;
+        stopButton.innerHTML = 'STOP';
+        autoMove('left');
+    }
+    else {
+        sliderWorking = false;
+        clearInterval(autoMove);
+        stopButton.innerHTML = 'START';
+    }
+}
+
+
+// CAMBIA LA DIREZIONE DELLO SCORRIMENTO IMMAGINI
+function reverseSlider() {
+    if (sliderWorking) {
+        if (sliderDirection == 'left') {
+            autoMove('left')
+            sliderDirection = 'right'
+        } else {
+            autoMove('right')
+            sliderDirection = 'left'
+        }
+    }
 }
