@@ -70,6 +70,7 @@ function updateImage() {
 			</div>`
         }
     })
+    // AGGIORNA LE THUMBNAILS IN BASE ALL'IMMAGINE ATTIVA 
     let allThumbs = document.querySelectorAll('.js-div');
     allThumbs.forEach((thumb, numeroThumb) => {
         if (numeroThumb == activeImage) {
@@ -149,11 +150,6 @@ function generateThumbs() {
         nuovaImmagine.innerHTML = `<img src="./${immagine.image}">`;
         nuovaImmagine.addEventListener('click', function () {
             activeImage = numeroIndice;
-            let allThumbs = document.querySelectorAll('.js-div')
-            for (thumb of allThumbs) {
-                thumb.classList.remove('active');
-            }
-            this.classList.toggle('active');
             updateImage();
         })
         sideThumbsEl.append(nuovaImmagine);
