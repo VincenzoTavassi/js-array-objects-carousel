@@ -81,7 +81,7 @@ function updateImage() {
 }
 
 // MUOVI A DESTRA 
-function moveRight() {
+function moveLeft() {
     activeImage++
     if (activeImage >= images.length) {
         activeImage = 0;
@@ -91,7 +91,7 @@ function moveRight() {
 }
 
 // MUOVI A SINISTRA 
-function moveLeft() {
+function moveRight() {
     activeImage--
     if (activeImage < 0) {
         activeImage = images.length - 1;
