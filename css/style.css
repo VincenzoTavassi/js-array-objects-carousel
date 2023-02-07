@@ -14,9 +14,13 @@ img {
 
     height: 100%;
     width: 100%;
-    border: 10px solid black;
+    border: 5px solid black;
     object-fit: cover;
     cursor: pointer;
+}
+
+.active {
+    border: 5px solid gray;
 }
 
 #side-container {

@@ -141,6 +141,11 @@ function generateThumbs() {
         nuovaImmagine.innerHTML = `<img src="./${immagine.image}">`;
         nuovaImmagine.addEventListener('click', function () {
             activeImage = numeroIndice;
+            let allThumbs = document.querySelectorAll('.js-div')
+            for (thumb of allThumbs) {
+                thumb.classList.remove('active');
+            }
+            this.classList.toggle('active');
             updateImage();
         })
         sideThumbsEl.append(nuovaImmagine);
